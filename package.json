@@ -1,0 +1,19 @@
+{
+  "name": "hourmap",
+  "version": "1.0.0",
+  "description": "Structured project hour estimation for professional services",
+  "private": true,
+  "main": "server/index.js",
+  "scripts": {
+    "build": "npm --prefix client install && npm --prefix client run build",
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}

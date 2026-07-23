@@ -1,0 +1,516 @@
+:root {
+  --paper: #f7f7f5;
+  --card: #ffffff;
+  --ink: #16211c;
+  --muted: #6b7671;
+  --line: #dde1de;
+  --green: #146b4e;
+  --green-deep: #0e5039;
+  --green-tint: #e7f0eb;
+  --amber: #8a6d1f;
+  --red: #8a2f2f;
+  --radius: 10px;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 24px 48px;
+}
+
+/* --- Masthead --- */
+
+.masthead {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wordmark-ticks {
+  display: inline-block;
+  width: 26px;
+  height: 18px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--green) 0 2px,
+    transparent 2px 6px
+  );
+  border-bottom: 2px solid var(--green);
+}
+
+.tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.workspace {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.workspace-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.workspace input {
+  width: 170px;
+  padding: 7px 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+@media (max-width: 860px) {
+  .workspace {
+    margin-left: 0;
+    width: 100%;
+  }
+  .workspace input {
+    width: 100%;
+  }
+}
+
+/* --- Layout --- */
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.panel-title,
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  margin: 0 0 14px;
+}
+
+.section-title {
+  margin-top: 26px;
+}
+
+/* --- Form --- */
+
+.field {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+select,
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 9px 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+select:focus-visible,
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  background: var(--green);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--green-deep);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn-ghost {
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background: var(--green-tint);
+}
+
+/* --- Result --- */
+
+.empty {
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.empty-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.result-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+
+.headline-number {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 1;
+  margin: 0;
+  color: var(--green-deep);
+}
+
+.headline-unit {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 10px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* --- Hour band (signature) --- */
+
+.band {
+  margin: 34px 0 56px;
+}
+
+.band-track {
+  position: relative;
+  height: 14px;
+  border-radius: 7px;
+  background:
+    repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px 10%),
+    var(--paper);
+  border: 1px solid var(--line);
+}
+
+.band-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--green-tint);
+  border-left: 1px solid var(--green);
+  border-right: 1px solid var(--green);
+}
+
+.band-marker {
+  position: absolute;
+  top: -6px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.band-marker-line {
+  display: block;
+  width: 2px;
+  height: 26px;
+  margin: 0 auto;
+  background: var(--green);
+}
+
+.band-marker-expected .band-marker-line {
+  background: var(--green-deep);
+  width: 3px;
+}
+
+.band-marker-value {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+.band-marker-expected .band-marker-value {
+  font-size: 18px;
+  color: var(--green-deep);
+}
+
+.band-marker-label {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* --- Band cards --- */
+
+.band-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.band-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+
+.band-card-hero {
+  border-color: var(--green);
+  background: var(--green-tint);
+}
+
+.band-card-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+
+.band-card-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0 0 6px;
+}
+
+.band-card-note {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* --- Confidence & tables --- */
+
+.confidence {
+  margin: 18px 0 0;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.confidence-high { color: var(--green-deep); }
+.confidence-medium { color: var(--amber); }
+.confidence-low { color: var(--red); }
+
+.phase-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.phase-table th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  padding: 6px 8px;
+}
+
+.phase-table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.phase-table td:not(:first-child),
+.phase-table th:not(:first-child) {
+  font-family: var(--font-mono);
+  text-align: right;
+  width: 90px;
+}
+
+.assumptions {
+  margin-top: 14px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* --- Actuals logging --- */
+
+.log-form {
+  margin-top: 8px;
+  border-top: 1px dashed var(--line);
+  padding-top: 4px;
+}
+
+.log-row {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.log-row .btn-primary {
+  width: auto;
+  margin-top: 0;
+}
+
+.log-status {
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--green-deep);
+}
+
+/* --- Misc --- */
+
+.muted {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--red);
+  font-size: 13.5px;
+}
+
+.footer {
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  font-size: 13px;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .band-cards {
+    grid-template-columns: 1fr;
+  }
+  .log-row {
+    grid-template-columns: 1fr;
+  }
+  .headline-number {
+    font-size: 40px;
+  }
+}
+
+/* --- Print (PDF export) --- */
+
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .shell {
+    padding: 0;
+  }
+  .panel {
+    border: none;
+    padding: 0;
+  }
+  .result-panel::before {
+    content: "HourMap — Project Hour Estimate";
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

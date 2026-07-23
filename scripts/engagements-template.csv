@@ -1,0 +1,4 @@
+workspace,industry,projectType,scope,complexity,client,revisions,actualHours,notes
+firm-a,legal,contract_review,medium,standard,existing,standard,14,"SaaS vendor MSA redline"
+firm-a,legal,contract_drafting,medium,high,new,standard,38,"Manufacturing supply agreement"
+firm-a,legal,research_memo,small,standard,existing,minimal,16,"Non-compete enforceability memo"
